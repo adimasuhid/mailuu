@@ -40,11 +40,11 @@ class Mailuu < Thor
 
 private
   def read_yaml
-    YAML.load_file("./config.yml") rescue puts "No config file. Run mailuu -c"
+    YAML.load_file("./mailuu_config.yml") rescue puts "No config file. Run mailuu -c"
   end
 
   def store_yaml(key, value)
-    store = YAML::Store.new "config.yml"
+    store = YAML::Store.new "mailuu_config.yml"
 
     store.transaction do
       store[key] = value
